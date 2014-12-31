@@ -89,11 +89,11 @@ Converter.ObjectToQuery = function (inObj)
 	else
 		return output;
 };
-Converter.CookiesToObject = function (inString)
+Converter.CookieToObject = function (inString)
 {
 	return Converter.Utility.Splitter(inString, "; ", Converter.Config.Case);
 };
-Converter.ObjectToCookies = function (inObj)
+Converter.ObjectToCookie = function (inObj)
 {
     var property;
     var value;
@@ -147,12 +147,12 @@ Converter.ObjectToSlashPath = function(inObj)
 };
 
 Converter.State = {};
-Converter.State.Cookies = Converter.CookiesToObject(document.cookie);
+Converter.State.Cookie = Converter.CookieToObject(document.cookie);
 Converter.State.Query = Converter.QueryToObject(window.location.search);
 Converter.State.SlashPath = Converter.SlashPathToObject(window.location.pathname);
 Converter.State.Commit = function()
 {
-	document.cookie = Converter.ObjectToCookies(Converter.State.Cookies);
+	document.cookie = Converter.ObjectToCookie(Converter.State.Cookie);
 	window.location = window.location.origin + Converter.ObjectToSlashPath(Converter.State.SlashPath) + Converter.ObjectToQuery(Converter.State.Query);
 };
 
