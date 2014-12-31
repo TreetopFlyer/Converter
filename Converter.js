@@ -4,8 +4,8 @@
 	QueryStringAsObject(); // return an object based on the Query String
 	ObjectAsQueryString(inObject); // set the Query String based on "inObject" (will case a reload, and will remove pruned values)
 	
-	CookiesAsObject(); // return an object based on the Cookies
-	ObjectAsCookies(inObject, inHours=1); // set the Cookies based on "inObject" (will remove pruned cookies. all remaining cookies will be reset with a duration of "inHours" [inHours defaults to 1 of not provided])
+	CookieAsObject(); // return an object based on the Cookies
+	ObjectAsCookie(inObject, inHours=1); // set the Cookies based on "inObject" (will remove pruned cookies. all remaining cookies will be reset with a duration of "inHours" [inHours defaults to 1 of not provided])
 
 	examples:
 	
