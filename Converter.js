@@ -110,9 +110,9 @@ Converter.ObjectToCookie = function (inObj)
 	{
         value = inObj[property];
         if (value !== null)
-            output += (property + "=" + value + "; expires=" + d.toGMTString());
+            document.cookie = (property + "=" + value + "; expires=" + d.toGMTString());
         else
-            output += (property + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT");
+            document.cookie = (property + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT");
     }
 	return output;
 };
@@ -152,7 +152,7 @@ Converter.State.Query = Converter.QueryToObject(window.location.search);
 Converter.State.SlashPath = Converter.SlashPathToObject(window.location.pathname);
 Converter.State.Commit = function()
 {
-	document.cookie = Converter.ObjectToCookie(Converter.State.Cookie);
+	Converter.ObjectToCookie(Converter.State.Cookie);
 	window.location = window.location.origin + Converter.ObjectToSlashPath(Converter.State.SlashPath) + Converter.ObjectToQuery(Converter.State.Query);
 };
 
